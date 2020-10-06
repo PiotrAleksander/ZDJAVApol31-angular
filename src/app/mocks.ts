@@ -1,4 +1,4 @@
-import { IBeer } from './../types/index';
+import { IBeer } from './types/index';
 
 export const BEERS: IBeer[] = [
   {

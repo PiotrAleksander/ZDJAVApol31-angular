@@ -1,6 +1,6 @@
+import { BeersService } from './../beers.service';
 import { IBeer } from './../types/index';
 import { Component, OnInit } from '@angular/core';
-import { BEERS } from './mocks';
 
 @Component({
   selector: 'app-beers-list',
@@ -8,12 +8,14 @@ import { BEERS } from './mocks';
   styleUrls: ['./beers-list.component.css'],
 })
 export class BeersListComponent implements OnInit {
-  beers: IBeer[] = BEERS;
+  beers: IBeer[];
   selectedBeer: IBeer;
 
-  constructor() {}
+  constructor(private beersService: BeersService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.beers = this.beersService.getBeers();
+  }
 
   onSelectBeer(beer: IBeer): void {
     this.selectedBeer = beer;
