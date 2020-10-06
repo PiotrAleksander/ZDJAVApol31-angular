@@ -1,0 +1,6 @@
+<ul>
+    <li *ngFor="let beer of beers" (click)="onSelectBeer(beer)">
+        {{ beer.name }}
+    </li>
+</ul>
+<app-beer-details *ngIf="selectedBeer" [beer]="selectedBeer"></app-beer-details>

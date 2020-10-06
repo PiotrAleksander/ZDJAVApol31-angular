@@ -1,6 +1,4 @@
 <div>
   {{ title | uppercase }}
-  <input type="number" [(ngModel)]="inputModel">
-  <span *ngIf="inputModel > 60">Liczba większa od 60</span>
-  <img style="height: 40px;" (click)="imageClick()" [src]="imageURL" alt="zdjęcie" />
 </div>
+<app-beers-list></app-beers-list>
