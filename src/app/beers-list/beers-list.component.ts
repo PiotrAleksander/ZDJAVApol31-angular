@@ -9,15 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BeersListComponent implements OnInit {
   beers: IBeer[];
-  selectedBeer: IBeer;
 
   constructor(private beersService: BeersService) {}
 
   ngOnInit(): void {
-    this.beers = this.beersService.getBeers();
-  }
-
-  onSelectBeer(beer: IBeer): void {
-    this.selectedBeer = beer;
+    this.beersService.getBeers().subscribe((beers) => {
+      this.beers = beers;
+    });
   }
 }

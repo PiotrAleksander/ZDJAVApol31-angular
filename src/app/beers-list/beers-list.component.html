@@ -1,6 +1,5 @@
 <ul>
-    <li *ngFor="let beer of beers" (click)="onSelectBeer(beer)">
+    <li *ngFor="let beer of beers" routerLink="/beer/{{beer.id}}">
         {{ beer.name }}
     </li>
 </ul>
-<app-beer-details *ngIf="selectedBeer" [beer]="selectedBeer"></app-beer-details>

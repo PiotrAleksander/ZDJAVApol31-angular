@@ -1,5 +1,8 @@
+import { BeersService } from './../beers.service';
 import { IBeer } from './../types/index';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-beer-details',
@@ -7,9 +10,22 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./beer-details.component.css'],
 })
 export class BeerDetailsComponent implements OnInit {
-  @Input() beer: IBeer;
+  beer: IBeer;
 
-  constructor() {}
+  constructor(
+    private beersService: BeersService,
+    private route: ActivatedRoute,
+    private location: Location
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    const id = parseInt(this.route.snapshot.paramMap.get('id'), 10);
+    this.beersService.getBeer(id).subscribe((beer) => {
+      this.beer = beer;
+    });
+  }
+
+  goBack(): void {
+    this.location.back();
+  }
 }
