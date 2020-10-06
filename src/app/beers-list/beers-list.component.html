@@ -1,0 +1,6 @@
+<ul>
+    <li *ngFor="let beer of beers" (click)="onSelectBeer(beer)">
+        <span>{{ beer.name }}</span>
+    </li>
+</ul>
+<app-beer-details [beer]="selectedBeer"></app-beer-details>
