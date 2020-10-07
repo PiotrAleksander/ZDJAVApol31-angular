@@ -7,6 +7,8 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root',
 })
 export class BeersService {
+  baseUrl = 'https://api.punkapi.com/v2/';
+
   constructor() {}
 
   getBeers(): Observable<IBeer[]> {
