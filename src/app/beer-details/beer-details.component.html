@@ -1,4 +1,4 @@
-<button (click)="goBack()">go back</button>
+<button mat-button (click)="goBack()">go back</button>
 <p>{{ beer.name }}</p>
 <p>{{ beer.description }}</p>
 <img *ngIf="beer.image_url" [src]="beer.image_url" alt="beer image">

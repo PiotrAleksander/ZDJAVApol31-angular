@@ -1,5 +1,6 @@
-<ul>
-    <li *ngFor="let beer of beers" routerLink="/beer/{{beer.id}}">
+<mat-list role="list">
+    <mat-list-item role="listitem" *ngFor="let beer of beers" routerLink="/beer/{{beer.id}}">
+        <mat-icon mat-list-icon>emoji_food_beverage</mat-icon>
         {{ beer.name }}
-    </li>
-</ul>
+    </mat-list-item>
+</mat-list>
